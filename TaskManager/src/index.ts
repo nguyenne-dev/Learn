@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import userRoutes from './routes/user.routes.js';
+import taskRoutes from './routes/task.routes.js';
 
 dotenv.config();
 
@@ -12,6 +13,7 @@ app.use(express.json());
 
 // Đăng ký routes
 app.use('/api/users', userRoutes);
+app.use('/api/tasks', taskRoutes);
 
 // Kiểm tra server
 app.get('/health', (_req, res) => {
@@ -21,3 +23,4 @@ app.get('/health', (_req, res) => {
 app.listen(PORT, () => {
   console.log(`Server đang chạy tại: http://localhost:${PORT}`);
 });
+
